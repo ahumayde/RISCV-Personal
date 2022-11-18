@@ -36,6 +36,7 @@ always_comb
         // Branch - B
             7'h63: case (instr[F3-1:OP]) // Branch Imm[31,7,30:25,11:8] 12 bit format
                 3'h3: if(EQ) begin RegWrite = 0; ALUctrl = 3'h0; ALUsrc = 1; ImmSrc = 3'h3; PCsrc = 1; end // bne
+                      else   begin RegWrite = 0; ALUctrl = 3'h0; ALUsrc = 1; ImmSrc = 3'h0; PCsrc = 0; end
                 default:     begin RegWrite = 0; ALUctrl = 3'h0; ALUsrc = 1; ImmSrc = 3'h0; PCsrc = 0; end
             endcase
 
