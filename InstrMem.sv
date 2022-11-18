@@ -3,7 +3,7 @@ module InstrMem #(
                 D_WIDTH = 32
 )(
     input  logic [A_WIDTH-1:0]  PC,
-    output logic [D_WIDTH-1:0]  instr,
+    output logic [D_WIDTH-1:0]  instr
 );
 
 logic [D_WIDTH-1:0] rom_array [2**A_WIDTH-1:0];
