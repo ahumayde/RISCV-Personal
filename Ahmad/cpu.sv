@@ -1,4 +1,4 @@
-module CPU #(
+module cpu #(
     parameter WIDTH = 32
 )(
     input  logic clk,
@@ -18,7 +18,7 @@ module CPU #(
     wire             EQ;
 
 // PC Module
-PCtop PC(
+PCtop PCT(
     .clk(clk),
     .rst(rst),
     .PCsrc(PCsrc),

@@ -33,4 +33,3 @@ module RegFile #(
         if (WE3) REG_FILE[AD3] <= WD3;
 
 endmodule
-     

@@ -1,4 +1,4 @@
-module signextender(
+module SignExtend(
     input  logic [31:0] instr,
     input  logic [2:0]  ImmSrc,
     output logic [31:0] ImmOp
@@ -15,7 +15,7 @@ module signextender(
         // Branch
             3'b011:  ImmOp = {{21{instr[31]}},{instr[7]},{instr[30:25]},{instr[11:8]}};
         // Jump      
-            3'b100:  ImmOp = {{13{instr[31]}},{instr[19:12]},{instr[20]},{instr[10:1]}};
+            3'b100:  ImmOp = {{13{instr[31]}},{instr[19:12]},{instr[20]},{instr[30:21]}};
         // Default
             default: ImmOp = {32{1'b0}};
         endcase

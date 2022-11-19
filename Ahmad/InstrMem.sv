@@ -1,5 +1,5 @@
 module InstrMem #(
-    parameter   A_WIDTH = 32,
+    parameter   A_WIDTH = 20,
                 D_WIDTH = 8
 )(
     input  logic [A_WIDTH-1:0]   A,

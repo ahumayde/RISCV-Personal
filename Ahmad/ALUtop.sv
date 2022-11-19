@@ -3,23 +3,26 @@ module ALUtop #(
                 D_WIDTH = 32
 )(
     input  logic               clk,
-    input  logic               ALUsrc
-    input  logic               ALUctrl,
+    input  logic               ALUsrc,
+    input  logic [2:0]         ALUctrl,
     input  logic               RegWrite,
     input  logic [A_WIDTH-1:0] rs1,
     input  logic [A_WIDTH-1:0] rs2,
     input  logic [A_WIDTH-1:0] rd,
     input  logic [D_WIDTH-1:0] ImmOp,
     output logic               EQ,
-    output logic               a0
+    output logic [D_WIDTH-1:0] a0
 );
 
 // Internal Wires
-    wire [D_WIDTH-1:0] ALUop1,
-    wire [D_WIDTH-1:0] ALUop2,
-    wire [D_WIDTH-1:0] regOp2;
-    wire [D_WIDTH-1:0] ALUout;
+    logic [D_WIDTH-1:0] ALUop1;
+    logic [D_WIDTH-1:0] ALUop2;
+    logic [D_WIDTH-1:0] regOp2;
+    logic [D_WIDTH-1:0] ALUout;
     
+// MUX 
+    assign ALUop2 = ALUsrc ? ImmOp : regOp2;
+
 // Reg File Module
 RegFile rf(
     .clk(clk),
@@ -32,9 +35,6 @@ RegFile rf(
     .RD2(regOp2),
     .a0(a0)
 );
-
-// MUX 
-    assign ALUop2 = ALUsrc ? ImmOp : regOp2;
 
 // ALU Module
 ALU alu(

@@ -5,13 +5,13 @@ module PCtop #(
     input  logic rst,
     input  logic PCsrc,
     input  logic [D_WIDTH-1:0] ImmOp,
-    output logic [D_WIDTH-1:0] PC,
+    output logic [D_WIDTH-1:0] PC
 );
 
 // Internal Wires
-    wire [D_WIDTH-1:0] branch_PC;
-    wire [D_WIDTH-1:0] inc_PC;
-    wire [D_WIDTH-1:0] next_PC;
+    logic [D_WIDTH-1:0] branch_PC;
+    logic [D_WIDTH-1:0] inc_PC;
+    logic [D_WIDTH-1:0] next_PC;
 
 // Combinational Logic
     always_comb begin

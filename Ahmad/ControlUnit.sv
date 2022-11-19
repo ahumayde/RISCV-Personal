@@ -42,7 +42,7 @@ module ControlUnit #(
                             ImmSrc  = 3'b011; 
                             PCsrc   = 1'b1; 
                         end else begin
-                            ImmSrc  = 1'b011;
+                            ImmSrc  = 3'b011;
                             PCsrc   = 1'b0; 
                         end
                 default: $display ("Invalid Instruction");
