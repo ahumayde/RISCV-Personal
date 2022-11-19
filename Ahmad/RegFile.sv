@@ -13,22 +13,23 @@ module RegFile #(
     output logic [D_WIDTH-1:0] a0    
 );
 
-    wire [D_WIDTH-1:0] REG_ARRAY [2**A_WIDTH-1:0];
+    wire [D_WIDTH-1:0] REG_FILE [2**A_WIDTH-1:0];
 
-    // Innitiate all values in register array to 0
+    // Innitiate all values in register FILE to 0
     initial 
-        for (int i = 0; i < $size(REG_ARRAY); i++)
-            REG_ARRAY[i] = 32'b0;
+        for (int i = 0; i < $size(REG_FILE); i++)
+            REG_FILE[i] = 32'b0;
 
     // Set outputs
     always_comb begin
-        a0  = REG_ARRAY[10];
-        RD1 = REG_ARRAY[AD1];
-        RD2 = REG_ARRAY[AD2];
+        a0  = REG_FILE[10];
+        RD1 = REG_FILE[AD1];
+        RD2 = REG_FILE[AD2];
     end
 
+    // Write to register file
     always_ff @(posedge clk)
-        if (WE3) REG_ARRAY[AD3] <= WD3;
+        if (WE3) REG_FILE[AD3] <= WD3;
 
 endmodule
      
