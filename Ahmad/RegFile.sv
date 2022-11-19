@@ -13,9 +13,10 @@ module RegFile #(
     output logic [D_WIDTH-1:0] a0    
 );
 
-    wire [D_WIDTH-1:0] REG_FILE [2**A_WIDTH-1:0];
+    // Register file array
+    logic [D_WIDTH-1:0] REG_FILE [2**A_WIDTH-1:0];
 
-    // Innitiate all values in register FILE to 0
+    // Innitiate all values in register file to 0
     initial 
         for (int i = 0; i < $size(REG_FILE); i++)
             REG_FILE[i] = 32'b0;
