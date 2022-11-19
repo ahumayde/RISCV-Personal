@@ -8,8 +8,11 @@ module PCReg #(
 );
 
 // Clocked Register with Reset
-always_ff @(posedge clk)
+always_ff @(posedge clk) begin
     if (rst) PC <= 32'b0;
     else     PC <= next_PC;
+    $display("\n\n\n");
+    $display("Program Counter: ",PC);
+end
 
 endmodule

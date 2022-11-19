@@ -5,7 +5,6 @@ module cpu #(
     input  logic rst,
     output logic [WIDTH-1:0] a0
 );
-
     
     wire [WIDTH-1:0] PC;
     wire [WIDTH-1:0] instr;

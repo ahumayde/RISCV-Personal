@@ -9,8 +9,7 @@ module ALU #(
 );
 
     always_comb begin
-        EQ = ( ALUop1 ==   ALUop2);
-
+        EQ = (ALUop1 == ALUop2);
         case (ALUctrl)
             3'b000:    ALUout = ALUop1 + ALUop2;
             3'b001:    ALUout = ALUop1 - ALUop2;
@@ -19,6 +18,9 @@ module ALU #(
             3'b100:    ALUout = {{31{1'b0}},{ALUop1 < ALUop2}};
             default:   ALUout = 32'b0;
         endcase
+        $display("    New line    ");
+        $display("ALU1", ALUop1);
+        $display("ALU2", ALUop2);
     end
 
 endmodule

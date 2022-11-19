@@ -42,7 +42,7 @@ int main(int argc, char **argv, char **env) {
     vbdCycle(simcyc);
 
     // Displays value at a0 on Vbuddy
-    
+
     vbdHex(1, int(cpu->a0) & 0xf);
     vbdHex(2, int(cpu->a0) >> 4 & 0xf);
     vbdHex(3, int(cpu->a0) >> 8 & 0xf);

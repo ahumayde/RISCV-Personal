@@ -11,6 +11,8 @@ module ControlUnit #(
 );
 
     always_comb begin
+        $display("Instr:   ",instr);
+        
         // Set Defaults
         RegWrite = 1'b0; 
         ALUctrl  = 3'b111; 
@@ -25,7 +27,11 @@ module ControlUnit #(
             // 7'd03: // Load Immediate
             7'd19: case (instr[14:12]) // funct3
                 // Add Immediate - addi
-                3'b000:  RegWrite = 1;  
+                3'b000: begin 
+                    RegWrite = 1'b1;
+                    ALUctrl  = 3'b000;
+                    ImmSrc   = 3'b000;
+                end  
                 default: $display ("Invalid Instruction");
             endcase
         // Upper Immediate - UI
@@ -42,8 +48,7 @@ module ControlUnit #(
                             ImmSrc  = 3'b011; 
                             PCsrc   = 1'b1; 
                         end else begin
-                            ImmSrc  = 3'b011;
-                            PCsrc   = 1'b0; 
+                            ALUsrc  = 1'b0; 
                         end
                 default: $display ("Invalid Instruction");
             endcase

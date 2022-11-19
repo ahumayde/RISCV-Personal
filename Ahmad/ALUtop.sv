@@ -19,9 +19,6 @@ module ALUtop #(
     logic [D_WIDTH-1:0] ALUop2;
     logic [D_WIDTH-1:0] regOp2;
     logic [D_WIDTH-1:0] ALUout;
-    
-// MUX 
-    assign ALUop2 = ALUsrc ? ImmOp : regOp2;
 
 // Reg File Module
 RegFile rf(
@@ -35,6 +32,9 @@ RegFile rf(
     .RD2(regOp2),
     .a0(a0)
 );
+
+// MUX 
+    assign ALUop2 = ALUsrc ? ImmOp : regOp2;
 
 // ALU Module
 ALU alu(
