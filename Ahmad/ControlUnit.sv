@@ -43,13 +43,13 @@ module ControlUnit #(
             7'd99: case (instr[14:12]) // funct3
                 // Branch if Not Equal - bne
                 3'b001: if(!EQ) begin 
-                            ALUctrl = 3'b111; 
-                            ALUsrc  = 1'b0; 
-                            ImmSrc  = 3'b011; 
-                            PCsrc   = 1'b1; 
-                        end else begin
-                            ALUsrc  = 1'b0; 
-                        end
+                    ALUctrl = 3'b111; 
+                    ALUsrc  = 1'b0; 
+                    ImmSrc  = 3'b011; 
+                    PCsrc   = 1'b1; 
+                end else begin
+                    ALUsrc  = 1'b0; 
+                end
                 default: $display ("Invalid Instruction");
             endcase
         // Jump - J
