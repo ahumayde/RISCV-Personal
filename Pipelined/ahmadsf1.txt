@@ -18,8 +18,8 @@ defaut:
     addi a3, zero, 0x1 
 
 reset:
-    addi a0, zero, 0x0 
-    addi a4, zero, 0x0 
+    addi a0, zero, 0x0 /* reset output */
+    addi a4, zero, 0x0 /* reset delay counter */
 
 mloop:
     beq  t0, s1, fsm    /* check trigger */ /* MAY MAKE 7th POLYNOMIAL*/

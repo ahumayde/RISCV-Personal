@@ -22,13 +22,15 @@ module RegisterFile #(
 
   // Set outputs
   always_comb begin
-    a0 = REG_FILE[10];
+    a0  = REG_FILE[10];
     RD1 = REG_FILE[A1];
     RD2 = REG_FILE[A2];
-    REG_FILE[5] = trigger;
   end
 
   // Write to register file
-  always_ff @(posedge CLK) if (WE3) REG_FILE[A3] <= WD3;
+  always_ff @(posedge CLK) begin
+    if (WE3) REG_FILE[A3] <= WD3;
+    REG_FILE[5] <= {{31'b0}, {trigger}};
+  end
 
 endmodule
