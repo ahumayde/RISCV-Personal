@@ -17,6 +17,6 @@ module InstrMemory #(
   end
 
   // Assign Output
-  assign RD = {{ROM[A]}, {ROM[A+1]}, {ROM[A+2]}, {ROM[A+3]}};
+  assign RD = {{ROM[A+3]}, {ROM[A+2]}, {ROM[A+1]}, {ROM[A]}};
 
 endmodule
